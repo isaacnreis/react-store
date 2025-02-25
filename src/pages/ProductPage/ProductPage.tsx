@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import styles from "./ProductPage.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useCartStore } from "../../store/cartStore";
 
 interface Product {
   id: number;
@@ -15,6 +16,7 @@ interface Product {
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
+  const addToCart = useCartStore((state) => state.addToCart);
 
   useEffect(() => {
     axios
@@ -34,7 +36,9 @@ const ProductPage = () => {
         <h1>{product.title}</h1>
         <p className={styles.price}>R$ {product.price.toFixed(2)}</p>
         <p>{product.description}</p>
-        <button className={styles.button}>Adicionar ao Carrinho</button>
+        <button className={styles.button} onClick={() => addToCart(product)}>
+          Adicionar ao Carrinho
+        </button>
       </div>
     </div>
   );
