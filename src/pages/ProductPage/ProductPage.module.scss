@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.details {
+  max-width: 500px;
+}
+
+.price {
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    background-color: var(--secondary);
+  }
+}
