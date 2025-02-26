@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCartStore } from "../../store/cartStore";
 import styles from "./Cart.module.scss";
 
@@ -25,6 +26,9 @@ const Cart = () => {
           ))}
           <button className={styles.clearButton} onClick={clearCart}>
             Limpar Carrinho
+          </button>
+          <button className={styles.checkoutButton}>
+            <Link to="/checkout">Finalizar Compra</Link>
           </button>
         </div>
       )}

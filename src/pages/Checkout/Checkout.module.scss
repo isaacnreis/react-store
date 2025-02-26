@@ -1,25 +1,20 @@
 .container {
+  max-width: 500px;
+  margin: auto;
   padding: 20px;
   text-align: center;
 }
 
-.cartList {
+.form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
-.cartItem {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+input {
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-}
-
-.details {
-  flex: 1;
+  border-radius: 5px;
 }
 
 button {
@@ -36,18 +31,7 @@ button {
   }
 }
 
-.clearButton {
-  margin-top: 20px;
-  background-color: red;
-}
-
-.checkoutButton {
-  background-color: green;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.checkoutButton a {
-  color: white;
+.error {
+  color: red;
+  font-size: 14px;
 }
