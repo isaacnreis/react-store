@@ -1,7 +1,29 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background-color: var(--background);
+  align-items: center;
+  padding: 15px 20px;
+  background: var(--background);
   color: var(--text);
+}
+
+.cartIcon {
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    color: var(--secondary);
+  }
+
+  .cartCount {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: var(--primary);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 6px;
+    border-radius: 50%;
+  }
 }
