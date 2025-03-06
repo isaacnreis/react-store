@@ -3,7 +3,7 @@ import { useCartStore } from "../../store/cartStore";
 import styles from "./Cart.module.scss";
 
 const Cart = () => {
-  const { cart, removeFromCart, clearCart } = useCartStore();
+  const { cart, updateQuantity, removeFromCart, clearCart } = useCartStore();
 
   return (
     <div className={styles.container}>
@@ -18,6 +18,26 @@ const Cart = () => {
               <div className={styles.details}>
                 <h3>{product.title}</h3>
                 <p>R$ {product.price.toFixed(2)}</p>
+                <div className="quantity-controls">
+                  <button
+                    onClick={() =>
+                      updateQuantity(
+                        product.id,
+                        Math.max(product.quantity - 1, 1)
+                      )
+                    }
+                  >
+                    -
+                  </button>
+                  <span>{product.quantity}</span>
+                  <button
+                    onClick={() =>
+                      updateQuantity(product.id, product.quantity + 1)
+                    }
+                  >
+                    +
+                  </button>
+                </div>
                 <button onClick={() => removeFromCart(product.id)}>
                   Remover
                 </button>

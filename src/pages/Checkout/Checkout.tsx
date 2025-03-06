@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useCartStore } from "../../store/cartStore";
 import styles from "./Checkout.module.scss";
+import CheckoutButton from "../../components/CheckoutButton/CheckoutButton";
 
 interface FormData {
   name: string;
@@ -70,6 +71,7 @@ const Checkout = () => {
           )}
 
           <button type="submit">Finalizar Compra</button>
+          <CheckoutButton />
         </form>
       )}
     </div>
