@@ -4,53 +4,69 @@ import styles from "./Cart.module.scss";
 
 const Cart = () => {
   const { cart, updateQuantity, removeFromCart, clearCart } = useCartStore();
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   return (
-    <div className={styles.container}>
-      <h1>Carrinho de Compras</h1>
+    <div className={styles.cartPage}>
+      <h2>🛒 Seu Carrinho</h2>
+
       {cart.length === 0 ? (
-        <p>Seu carrinho está vazio.</p>
-      ) : (
-        <div className={styles.cartList}>
-          {cart.map((product) => (
-            <div key={product.id} className={styles.cartItem}>
-              <img src={product.image} alt={product.title} />
-              <div className={styles.details}>
-                <h3>{product.title}</h3>
-                <p>R$ {product.price.toFixed(2)}</p>
-                <div className="quantity-controls">
-                  <button
-                    onClick={() =>
-                      updateQuantity(
-                        product.id,
-                        Math.max(product.quantity - 1, 1)
-                      )
-                    }
-                  >
-                    -
-                  </button>
-                  <span>{product.quantity}</span>
-                  <button
-                    onClick={() =>
-                      updateQuantity(product.id, product.quantity + 1)
-                    }
-                  >
-                    +
-                  </button>
-                </div>
-                <button onClick={() => removeFromCart(product.id)}>
-                  Remover
-                </button>
-              </div>
-            </div>
-          ))}
-          <button className={styles.clearButton} onClick={clearCart}>
-            Limpar Carrinho
-          </button>
-          <button className={styles.checkoutButton}>
-            <Link to="/checkout">Finalizar Compra</Link>
-          </button>
+        <div className={styles.emptyCart}>
+          <p>O carrinho está vazio.</p>
+          <Link to="/" className={styles.backToShop}>
+            Voltar para a Loja
+          </Link>
         </div>
+      ) : (
+        <>
+          <ul className={styles.cartList}>
+            {cart.map((item) => (
+              <li key={item.id} className={styles.cartItem}>
+                <img src={item.image} alt={item.title} />
+                <div className={styles.details}>
+                  <h3>{item.title}</h3>
+                  <p>R$ {item.price.toFixed(2)}</p>
+                  <div className={styles.quantityControls}>
+                    <button
+                      onClick={() =>
+                        updateQuantity(item.id, Math.max(item.quantity - 1, 1))
+                      }
+                    >
+                      -
+                    </button>
+                    <span>{item.quantity}</span>
+                    <button
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <button
+                  className={styles.removeButton}
+                  onClick={() => removeFromCart(item.id)}
+                >
+                  🗑️
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <div className={styles.cartFooter}>
+            <h3>Total: R$ {totalPrice.toFixed(2)}</h3>
+            <Link to="/checkout">
+              <button className={styles.checkoutButton}>
+                Finalizar Compra
+              </button>
+            </Link>
+            <button className={styles.clearButton} onClick={clearCart}>
+              Limpar Carrinho
+            </button>
+          </div>
+        </>
       )}
     </div>
   );
