@@ -38,12 +38,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       line_items: line_items,
       mode: "payment",
       success_url: "https://react-store-lyart.vercel.app/success",
-      cancel_url: "https://react-store-lyart.vercel.app/cancel",
+      cancel_url: "https://react-store-lyart.vercel.app/error",
     });
 
     console.log("✅ Checkout criado:", session.id);
 
-    return res.status(200).json({ id: session.id });
+    return res.status(200).json({ id: session.id, url: session.url });
   } catch (error: any) {
     console.error("🔥 Erro no checkout:", error);
     return res.status(500).json({ error: error.message });

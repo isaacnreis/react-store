@@ -5,6 +5,7 @@ import NavBar from "./components/Navbar/Navbar";
 import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import Success from "./pages/Success/Success";
+import Error from "./pages/Error/Error";
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/error" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );

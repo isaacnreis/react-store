@@ -28,10 +28,10 @@ app.post("/create-checkout-session", async (req, res) => {
       line_items: lineItems,
       mode: "payment",
       success_url: "http://localhost:5173/success",
-      cancel_url: "http://localhost:5173/cancel",
+      cancel_url: "http://localhost:5173/error",
     });
-
-    res.json({ id: session.id });
+    console.log(session);
+    res.json({ id: session.id, url: session.url });
   } catch (error) {
     console.error("Erro ao criar sessão de pagamento:", error);
     res.status(500).json({ error: error.message });

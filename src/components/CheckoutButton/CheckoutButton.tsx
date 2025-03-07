@@ -4,24 +4,21 @@ const CheckoutButton = () => {
   const { cart } = useCartStore();
 
   const handleCheckout = async () => {
-    const response = await fetch(
-      "https://react-store-lyart.vercel.app/api/checkout",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: cart.map((item) => ({
-            title: item.title,
-            image: item.image,
-            price: item.price,
-            quantity: item.quantity || 1,
-          })),
-        }),
-      }
-    );
+    const response = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        items: cart.map((item) => ({
+          title: item.title,
+          image: item.image,
+          price: item.price,
+          quantity: item.quantity || 1,
+        })),
+      }),
+    });
 
     const data = await response.json();
-    if (data.id) {
+    if (data.url) {
       window.location.href = data.url;
     }
   };
