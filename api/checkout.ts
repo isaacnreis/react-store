@@ -12,19 +12,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { cartItems } = req.body;
+    const { items } = req.body;
 
-    if (!cartItems || !Array.isArray(cartItems)) {
+    if (!items || !Array.isArray(items)) {
       console.error("❌ Erro: Itens inválidos na requisição:", req.body);
       return res.status(400).json({ error: "Itens inválidos na requisição" });
     }
 
-    const line_items = cartItems.map((item) => ({
+    const line_items = items.map((item) => ({
       price_data: {
         currency: "brl",
         product_data: {
           name: item.title,
-          description: item.description,
           images: [item.image],
         },
         unit_amount: Math.round(item.price * 100),
@@ -38,8 +37,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       payment_method_types: ["card"],
       line_items: line_items,
       mode: "payment",
-      success_url: `${req.headers.origin}/success`,
-      cancel_url: `${req.headers.origin}/cart`,
+      success_url: "https://react-store-lyart.vercel.app/success",
+      cancel_url: "https://react-store-lyart.vercel.app/cancel",
     });
 
     console.log("✅ Checkout criado:", session.id);
