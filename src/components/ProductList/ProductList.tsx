@@ -8,9 +8,16 @@ import styles from "./ProductList.module.scss";
 interface Product {
   id: number;
   title: string;
+  discount: string;
   price: number;
-  image: string;
+  oldPrice: number;
+  description: string;
   category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
 }
 
 const ProductList = () => {
