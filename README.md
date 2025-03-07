@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# 🛒 React Store - E-commerce Simples
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**React Store** é um projeto de e-commerce moderno e responsivo desenvolvido com **React + Vite**, com integração de pagamentos via **Stripe** e gerenciamento de estado com **Zustand**. O objetivo foi criar um sistema funcional e bem estruturado, seguindo boas práticas de desenvolvimento.
 
-Currently, two official plugins are available:
+## ✨ Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ **Listagem de produtos** via FakeStoreAPI  
+✅ **Carrinho de compras** persistente com Zustand  
+✅ **Pesquisa e filtros avançados** por categoria e preço  
+✅ **Sistema de favoritos** para salvar produtos  
+✅ **Checkout com Stripe** para pagamento seguro  
+✅ **Modo claro/escuro** para melhor experiência do usuário  
+✅ **Responsividade total** para desktops, tablets e mobile  
+✅ **SEO otimizado** com metadados e performance aprimorada
 
-## Expanding the ESLint configuration
+## 🛠 Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React + Vite** 🚀 (desenvolvimento rápido e otimizado)
+- **TypeScript** ✅ (tipagem estática para maior segurança)
+- **Zustand** 🛒 (gerenciamento de estado leve e eficiente)
+- **React Router** 🌎 (navegação entre páginas)
+- **React Hook Form** 📋 (validação e gerenciamento de formulários)
+- **SCSS Modules** 🎨 (estilização modular e organizada)
+- **Stripe API** 💳 (integração de pagamentos)
+- **Lazy Loading e Suspense** ⚡ (carregamento otimizado)
 
-- Configure the top-level `parserOptions` property like this:
+## 🎯 Objetivo do Projeto
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Este projeto foi criado para **aprimorar minhas habilidades como desenvolvedor full stack**, aprofundando conceitos de **gerenciamento de estado, integração com APIs externas, otimização de performance e boas práticas de código**.
+
+## 📸 Demonstração
+
+🔗 **[Live Demo](https://react-store-lyart.vercel.app/)** (hospedado na Vercel)
+
+## 📌 Como Rodar o Projeto Localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/isaacnreis/react-store.git
+
+# Entre no diretório do projeto
+cd react-store
+
+# Instale as dependências
+npm install
+
+# Inicie o projeto
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Desenvolvido por Isaac Reis 👨‍💻🚀
