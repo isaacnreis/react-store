@@ -37,8 +37,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       payment_method_types: ["card"],
       line_items: line_items,
       mode: "payment",
-      success_url: `${process.env.VERCEL_URL}/success`,
-      cancel_url: `${process.env.VERCEL_URL}/error`,
+      success_url: `https://${process.env.VERCEL_URL}/success`,
+      cancel_url: `https://${process.env.VERCEL_URL}/error`,
     });
 
     console.log("✅ Checkout criado:", session.id);
