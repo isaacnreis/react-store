@@ -19,22 +19,24 @@ const NavBar = () => {
       <Link to="/">
         <h1>ReactStore</h1>
       </Link>
-      <div className={styles.searchBar}>
-        <input
-          type="text"
-          placeholder="Pesquisar produtos..."
-          onChange={onSearch}
-        />
-        <FiSearch className={styles.searchIcon} />
-      </div>
-      <div
-        className={styles.cartIcon}
-        onClick={() => setIsModalOpen(!isModalOpen)}
-      >
-        <FiShoppingCart size={28} />
-        {totalItems > 0 && (
-          <span className={styles.cartCount}>{totalItems}</span>
-        )}
+      <div className={styles.containerRight}>
+        <div className={styles.searchBar}>
+          <input
+            type="text"
+            placeholder="Pesquisar produtos..."
+            onChange={onSearch}
+          />
+          <FiSearch className={styles.searchIcon} />
+        </div>
+        <div
+          className={styles.cartIcon}
+          onClick={() => setIsModalOpen(!isModalOpen)}
+        >
+          <FiShoppingCart size={28} />
+          {totalItems > 0 && (
+            <span className={styles.cartCount}>{totalItems}</span>
+          )}
+        </div>
       </div>
       {isModalOpen && <CartModal onClose={() => setIsModalOpen(false)} />}
     </nav>

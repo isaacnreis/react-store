@@ -5,6 +5,32 @@
   padding: 15px 20px;
   background: var(--background);
   color: var(--text);
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.containerRight {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  @media (max-width: 480px) {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.searchIcon {
+  color: var(--secondary);
 }
 
 .cartIcon {
