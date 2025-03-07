@@ -1,0 +1,95 @@
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: center;
+  position: relative;
+}
+
+.discountTag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff4d4f;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.imageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+}
+
+.productImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.icons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.iconButton {
+  border: none;
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+}
+
+.details {
+  margin-top: 12px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.price {
+  margin-top: 5px;
+}
+
+.currentPrice {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff4d4f;
+  margin-right: 5px;
+}
+
+.oldPrice {
+  font-size: 14px;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.rating {
+  font-size: 14px;
+  color: #f8c102;
+  margin-top: 5px;
+}
+
+.reviewCount {
+  color: #888;
+  font-size: 12px;
+}

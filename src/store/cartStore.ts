@@ -14,6 +14,8 @@ interface CartState {
   updateQuantity: (id: number, quantity: number) => void;
   removeFromCart: (prodcutId: number) => void;
   clearCart: () => void;
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
 }
 
 export const useCartStore = create<CartState>((set) => ({
@@ -47,4 +49,8 @@ export const useCartStore = create<CartState>((set) => ({
     })),
 
   clearCart: () => set({ cart: [] }),
+
+  searchQuery: "",
+
+  setSearchQuery: (query) => set({ searchQuery: query }),
 }));

@@ -6,11 +6,14 @@ import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
 import Success from "./pages/Success/Success";
 import Error from "./pages/Error/Error";
+import Banner from "./components/Banner/Banner";
+import Footer from "./components/Footer/Footer";
 
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <NavBar />
+      <Banner />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductPage />} />
@@ -19,6 +22,7 @@ const AppRoutes = () => {
         <Route path="/success" element={<Success />} />
         <Route path="/error" element={<Error />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
