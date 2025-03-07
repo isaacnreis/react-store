@@ -1,7 +1,27 @@
 import { FiHeart, FiEye } from "react-icons/fi";
 import styles from "./ProductCard.module.scss";
+import React from "react";
 
-const ProductCard = ({ product }) => {
+interface Product {
+  id: number;
+  title: string;
+  discount: string;
+  price: number;
+  oldPrice: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
+
+interface ProductCardProps {
+  product: Product;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <div className={styles.card}>
       {product.discount && (
@@ -33,7 +53,7 @@ const ProductCard = ({ product }) => {
         <div className={styles.rating}>
           {Array.from(
             { length: Math.floor(product.rating.rate) },
-            (_, i) => "⭐"
+            (_) => "⭐"
           ).join(" ")}
           <span className={styles.reviewCount}>({product.rating.count})</span>
         </div>
