@@ -1,50 +1,46 @@
-import { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
+import { VercelRequest, VercelResponse } from "@vercel/node";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
+    return res.status(405).json({ error: "Método não permitido" });
   }
 
   try {
-    const { cartItems } = req.body;
+    const { items } = req.body;
 
-    if (!cartItems || cartItems.length === 0) {
-      return res.status(400).json({ error: "Carrinho vazio" });
+    if (!items || !Array.isArray(items)) {
+      return res.status(400).json({ error: "Itens inválidos na requisição" });
     }
 
-    type CartItem = {
-      title: string;
-      image: string;
-      price: number;
-      quantity: number;
-    };
-
-    const line_items = cartItems.map((item: CartItem) => ({
+    const line_items = items.map((item) => ({
       price_data: {
-        currency: "brl",
+        currency: "usd",
         product_data: {
-          name: item.title,
+          name: item.name,
           images: [item.image],
         },
-        unit_amount: Math.round(item.price * 100), // Stripe usa centavos
+        unit_amount: Math.round(item.price * 100),
       },
       quantity: item.quantity,
     }));
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
-      mode: "payment",
       line_items,
-      success_url: `${process.env.VERCEL_URL}/success`,
-      cancel_url: `${process.env.VERCEL_URL}/cart`,
+      mode: "payment",
+      success_url: `${req.headers.origin}/success`,
+      cancel_url: `${req.headers.origin}/cart`,
     });
 
-    res.status(200).json({ id: session.id });
-  } catch (error) {
-    console.error("Erro no Stripe:", error);
-    res.status(500).json({ error: "Erro ao criar sessão de pagamento" });
+    return res.status(200).json({ id: session.id });
+  } catch (error: any) {
+    console.error("Erro no checkout:", error);
+    return res.status(500).json({ error: error.message });
   }
 }
