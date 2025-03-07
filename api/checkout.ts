@@ -12,9 +12,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { items } = req.body;
+    const { cartItems } = req.body;
 
-    const line_items = items.map((item: any) => ({
+    if (!cartItems || !Array.isArray(cartItems)) {
+      console.error("❌ Erro: Itens inválidos na requisição:", req.body);
+      return res.status(400).json({ error: "Itens inválidos na requisição" });
+    }
+
+    const line_items = cartItems.map((item) => ({
       price_data: {
         currency: "brl",
         product_data: {
