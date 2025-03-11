@@ -71,6 +71,7 @@ const Checkout = () => {
           )}
 
           <button type="submit">Finalizar Compra</button>
+          <span>Ou</span>
           <CheckoutButton />
         </form>
       )}

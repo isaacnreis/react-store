@@ -57,14 +57,16 @@ const Cart = () => {
 
           <div className={styles.cartFooter}>
             <h3>Total: R$ {totalPrice.toFixed(2)}</h3>
-            <Link to="/checkout">
-              <button className={styles.checkoutButton}>
-                Finalizar Compra
+            <div className={styles.buttonsContainer}>
+              <Link to="/checkout">
+                <button className={styles.checkoutButton}>
+                  Finalizar Compra
+                </button>
+              </Link>
+              <button className={styles.clearButton} onClick={clearCart}>
+                Limpar Carrinho
               </button>
-            </Link>
-            <button className={styles.clearButton} onClick={clearCart}>
-              Limpar Carrinho
-            </button>
+            </div>
           </div>
         </>
       )}

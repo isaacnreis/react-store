@@ -10,6 +10,7 @@
   transform: translateX(0);
   transition: transform 0.3s ease-in-out;
   z-index: 2;
+  overflow: auto;
 
   .modalContent {
     padding: 20px;
@@ -68,6 +69,7 @@
 
   .total {
     padding-top: 10px;
+    padding-bottom: 2rem;
     border-top: 1px solid #4f504f;
     text-align: center;
 

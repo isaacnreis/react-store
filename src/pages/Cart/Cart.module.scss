@@ -108,26 +108,39 @@
     margin-bottom: 15px;
   }
 
-  .checkoutButton,
-  .clearButton {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s ease-in-out;
+  .buttonsContainer {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
 
-    &:hover {
-      background: var(--secondary);
+    @media (max-width: 480px) {
+      flex-direction: column;
+
+      a {
+        width: 100%;
+      }
     }
-  }
 
-  .clearButton {
-    margin-left: 16px;
-    background: var(--primary);
-    color: white;
+    .checkoutButton,
+    .clearButton {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s ease-in-out;
+
+      &:hover {
+        background: var(--secondary);
+      }
+
+      @media (max-width: 480px) {
+        width: 100%;
+      }
+    }
   }
 }
