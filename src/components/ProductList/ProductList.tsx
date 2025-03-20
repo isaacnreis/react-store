@@ -8,13 +8,14 @@ import styles from "./ProductList.module.scss";
 interface Product {
   id: number;
   title: string;
-  discount: string;
   price: number;
-  oldPrice: number;
-  description: string;
-  category: string;
   image: string;
-  rating: {
+  quantity: number;
+  discount?: string;
+  oldPrice?: number;
+  description?: string;
+  category?: string;
+  rating?: {
     rate: number;
     count: number;
   };

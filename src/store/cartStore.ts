@@ -6,6 +6,14 @@ interface Product {
   price: number;
   image: string;
   quantity: number;
+  discount?: string;
+  oldPrice?: number;
+  description?: string;
+  category?: string;
+  rating?: {
+    rate: number;
+    count: number;
+  };
 }
 
 interface CartState {

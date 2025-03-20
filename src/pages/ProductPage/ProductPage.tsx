@@ -10,8 +10,14 @@ interface Product {
   price: number;
   image: string;
   quantity: number;
-  category?: string;
+  discount?: string;
+  oldPrice?: number;
   description?: string;
+  category?: string;
+  rating?: {
+    rate: number;
+    count: number;
+  };
 }
 
 const ProductPage = () => {
