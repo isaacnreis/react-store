@@ -21,7 +21,8 @@ interface Product {
 }
 
 const ProductList = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const { searchQuery, categoryFilter, priceFilter } = useCartStore();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios
@@ -30,16 +31,24 @@ const ProductList = () => {
       .catch((error) => console.error("Erro ao buscar os produtos", error));
   }, []);
 
-  const { searchQuery } = useCartStore();
-
   // Filtrando os produtos
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredProducts = products.filter((product: Product) => {
+    const matchesSearch =
+      searchQuery === "" ||
+      product.title.toLowerCase().includes(searchQuery.toLowerCase());
+
+    const matchesCategory =
+      categoryFilter === "" || product.category === categoryFilter;
+
+    const matchesPrice =
+      product.price >= priceFilter.min && product.price <= priceFilter.max;
+
+    return matchesSearch && matchesCategory && matchesPrice;
+  });
 
   return (
     <>
-      {filteredProducts.map((product) => (
+      {filteredProducts.map((product: Product) => (
         <Link
           to={`/product/${product.id}`}
           key={product.id}

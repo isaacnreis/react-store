@@ -16,6 +16,10 @@ interface CartState {
   clearCart: () => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  categoryFilter: string;
+  setCategoryFilter: (category: string) => void;
+  priceFilter: { min: number; max: number };
+  setPriceFilter: (min: number, max: number) => void;
 }
 
 export const useCartStore = create<CartState>((set) => ({
@@ -53,4 +57,11 @@ export const useCartStore = create<CartState>((set) => ({
   searchQuery: "",
 
   setSearchQuery: (query) => set({ searchQuery: query }),
+
+  categoryFilter: "",
+  setCategoryFilter: (category) => set({ categoryFilter: category }),
+
+  priceFilter: { min: 0, max: 1000 },
+
+  setPriceFilter: (min, max) => set({ priceFilter: { min, max } }),
 }));
