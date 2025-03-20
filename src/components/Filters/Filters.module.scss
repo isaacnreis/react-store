@@ -2,7 +2,8 @@
   display: flex;
   gap: 20px;
   padding: 10px;
-  background: #f8f8f8;
+  background: var(--bg-color);
+  color: var(--text-color);
   border-radius: 8px;
   margin-bottom: 20px;
   justify-content: flex-end;
@@ -21,7 +22,7 @@
   select,
   input {
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--bg-color);
     border-radius: 5px;
     font-size: 14px;
   }
@@ -34,14 +35,14 @@
 .clearButton {
   margin-top: 10px;
   padding: 8px;
-  background: var(--primary);
-  color: white;
+  background: var(--primary-color);
+  color: var(--bg-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
 
   &:hover {
-    background: var(--secondary);
+    background: var(--secondary-color);
   }
 }

@@ -6,7 +6,7 @@
 }
 
 .title {
-  color: var(--primary);
+  color: var(--primary-color);
 }
 
 .productsGrid {
@@ -29,8 +29,8 @@
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 10px;
-  background: #fff;
-  color: #060212;
+  background: var(--bg-color);
+  color: var(--text-color);
   transition: transform 0.3s ease-in-out;
   height: 100%;
   box-sizing: border-box;

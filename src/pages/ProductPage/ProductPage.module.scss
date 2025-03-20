@@ -70,7 +70,7 @@
   button {
     width: 30px;
     height: 30px;
-    background-color: var(--primary);
+    background-color: var(--primary-color);
     border: none;
     cursor: pointer;
     font-size: 18px;
@@ -81,7 +81,7 @@
 }
 
 .addToCart {
-  background-color: var(--primary);
+  background-color: var(--primary-color);
   color: white;
   padding: 10px 20px;
   border: none;
