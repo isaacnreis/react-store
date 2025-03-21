@@ -25,7 +25,7 @@ const Cart = () => {
           <ul className={styles.cartList}>
             {cart.map((item) => (
               <li key={item.id} className={styles.cartItem}>
-                <img src={item.image} alt={item.title} />
+                <img src={item.image} alt={item.title} loading="lazy" />
                 <div className={styles.details}>
                   <h3>{item.title}</h3>
                   <p>R$ {item.price.toFixed(2)}</p>

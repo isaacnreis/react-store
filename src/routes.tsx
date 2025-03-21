@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import Home from "./pages/Home/Home";
+import Checkout from "./pages/Checkout/Checkout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -8,10 +9,10 @@ import Loading from "./components/Loading/Loading";
 
 const ProductPage = lazy(() => import("./pages/ProductPage/ProductPage"));
 const Cart = lazy(() => import("./pages/Cart/Cart"));
-const Checkout = lazy(() => import("./pages/Checkout/Checkout"));
 const Success = lazy(() => import("./pages/Success/Success"));
 const Error = lazy(() => import("./pages/Error/Error"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage"));
+const ContactPage = lazy(() => import("./pages/ContactPage/ContactPage"));
 
 const AppRoutes = () => {
   return (
@@ -25,6 +26,7 @@ const AppRoutes = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/success" element={<Success />} />
           <Route path="/error" element={<Error />} />
         </Routes>

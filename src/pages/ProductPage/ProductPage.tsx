@@ -3,6 +3,7 @@ import styles from "./ProductPage.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useCartStore } from "../../store/cartStore";
+import SEO from "../../components/SEO/SEO";
 
 interface Product {
   id: number;
@@ -48,14 +49,15 @@ const ProductPage = () => {
 
   return (
     <div className={styles.productContainer}>
+      <SEO title={product.title} description={product.description} />
       <div className={styles.imageSection}>
         <div className={styles.thumbnailList}>
-          <img src={product.image} alt={product.title} />
-          <img src={product.image} alt={product.title} />
-          <img src={product.image} alt={product.title} />
+          <img src={product.image} alt={product.title} loading="lazy" />
+          <img src={product.image} alt={product.title} loading="lazy" />
+          <img src={product.image} alt={product.title} loading="lazy" />
         </div>
         <div className={styles.mainImage}>
-          <img src={product.image} alt={product.title} />
+          <img src={product.image} alt={product.title} loading="lazy" />
         </div>
       </div>
       <div className={styles.detailsSection}>
